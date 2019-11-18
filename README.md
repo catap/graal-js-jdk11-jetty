@@ -28,7 +28,7 @@ cd graal-js-jdk11-jetty
 
 - Make sure that JAVA_HOME is pointed at a JDK11
 ```
-xport JAVA_HOME=$(/usr/libexec/java_home -v 11) # on macOIS
+export JAVA_HOME=$(/usr/libexec/java_home -v 11) # on macOS
 export JAVA_HOME=/path/to/jdk11 # on Linux
 ```
 
