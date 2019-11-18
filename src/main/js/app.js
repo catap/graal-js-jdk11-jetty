@@ -26,9 +26,14 @@ server.setHandler(handlers);
 
 context.setContextPath("/");
 
+sharedObj.put('Content-Type', 'text/plain');
+sharedObj.put('counter', 0);
+
 // Here a tricky part — use our JsFriendlyServlet to overstep GrralJS threads limitation
 var demoServletHolder = new ServletHolder("holder-name", new JsFriendlyServlet("DemoServlet.js"));
 context.addServlet(demoServletHolder, "/demo/*");
 
 server.start();
 server.join();
+
+console.log('It was processed messages: ' + sharedObj.get('counter'));
