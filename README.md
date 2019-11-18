@@ -1,4 +1,4 @@
-# Running Jetty servlet over GraalJS on stock JDK11
+# Running Jetty servlet over GraalJS on stock JDK11+
 
 This is a simple maven project that demonstrates how it's possible to run [Jetty](https://www.eclipse.org/jetty/)
 with Servlets over [GraalJS](http://www.graalvm.org/docs/reference-manual/languages/js/) on a stock JDK11.
@@ -44,4 +44,8 @@ Run over maven
 mvn exec:exec
 ```
 
-or just run `ky.korins.graaljs.App` with `-XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI`.
+or by hands:
+```
+cd src/main/js
+java -XX:+UnlockExperimentalVMOptions -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -jar ../../../target/graal-js-jdk11-jetty-1.0-SNAPSHOT-jar-with-dependencies.jar app.js
+```

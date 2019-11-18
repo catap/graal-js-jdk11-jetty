@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,11 +17,7 @@ public class JsFriendlyServlet extends HttpServlet {
     private final ThreadLocal<Map.Entry<Context, Value>> ctx;
 
     public JsFriendlyServlet(String file) throws IOException {
-        URL url = getClass().getClassLoader().getResource(file);
-        if (url == null) {
-            throw new IOException("Can't find file" + file);
-        }
-        Source js = Source.newBuilder("js", url).build();
+        Source js = App.openJsFile(file);
         ctx = ThreadLocal.withInitial(() -> {
             Context cx = App.createContext();
             Value handler = cx.eval(js);
