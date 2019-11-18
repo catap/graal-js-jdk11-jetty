@@ -17,7 +17,6 @@ public class JsFriendlyServlet extends HttpServlet {
 
     private final ThreadLocal<Map.Entry<Context, Value>> ctx;
 
-
     public JsFriendlyServlet(String file) {
         final URL js = getClass().getClassLoader().getResource(file);
         ctx = ThreadLocal.withInitial(() -> {
@@ -42,4 +41,7 @@ public class JsFriendlyServlet extends HttpServlet {
         }
     }
 
+    public void cleanupThread() {
+        ctx.remove();
+    }
 }
