@@ -47,5 +47,5 @@ mvn exec:exec
 or by hands:
 ```
 cd src/main/js
-java -XX:+UnlockExperimentalVMOptions -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -jar ../../../target/graal-js-jdk11-jetty-1.0-SNAPSHOT-jar-with-dependencies.jar app.js
+java -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -jar ../../../target/graal-js-jdk11-jetty-1.0-SNAPSHOT-jar-with-dependencies.jar app.js
 ```
