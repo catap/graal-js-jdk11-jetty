@@ -14,7 +14,7 @@ var JsFriendlyServlet = Java.type('ky.korins.graaljs.JsFriendlyServlet');
 /**
  * Let's create a simple jetty server with two handlers: shutdown and our servlets
  */
-var jsFriendlyQueuedThreadPool = new JsFriendlyQueuedThreadPool(200, 10, 30); // maxThreads, minThreads and idleSeconds
+var jsFriendlyQueuedThreadPool = new JsFriendlyQueuedThreadPool(200, 10, 30000); // maxThreads, minThreads and idleTimeout
 var server = new Server(jsFriendlyQueuedThreadPool);
 
 var serverConnector = new ServerConnector(server);
