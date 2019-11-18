@@ -36,8 +36,7 @@ context.setContextPath("/");
  * Example of working with shared object. It should be anywhere to be honest.
  * Keep in mind that as object you can use only java types.
  */
-sharedObj.put('Content-Type', 'text/plain');
-sharedObj.put('counter', 0);
+sharedObject.map.put('Content-Type', 'text/plain');
 
 /**
  * Here a tricky part — use our JsFriendlyServlet to overstep GrralJS threads limitation
@@ -53,4 +52,4 @@ context.addServlet(demoServletHolder, "/demo/*");
 server.start();
 server.join();
 
-console.log('It was processed messages: ' + sharedObj.get('counter'));
+console.log('It was processed messages: ' + sharedObject.counter);

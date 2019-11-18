@@ -4,12 +4,8 @@ import org.graalvm.polyglot.Context;
 import org.graalvm.polyglot.Source;
 
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 
 public class App {
-
-    public static Map<String, Object> sharedObj = new HashMap<>();
 
     public static Context createContext() {
         Context context = Context.newBuilder()
@@ -17,7 +13,7 @@ public class App {
                 .allowCreateThread(true)
                 .build();
 
-        context.getBindings("js").putMember("sharedObj", sharedObj);
+        context.getBindings("js").putMember("sharedObject", SharedObject.getInstance());
 
         return context;
     }

@@ -3,8 +3,8 @@
  */
 (load("Loaded.js"),
 function (req, resp) {
-    sharedObj.put('counter', sharedObj.get('counter') + 1);
+    sharedObject.counter += 1;
     resp.setStatus(statusCode);
-    resp.setContentType(sharedObj.get('Content-Type'));
+    resp.setContentType(sharedObject.map.get('Content-Type'));
     resp.getWriter().write("Some body");
 });
