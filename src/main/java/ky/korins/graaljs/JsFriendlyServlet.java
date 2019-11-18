@@ -17,16 +17,16 @@ public class JsFriendlyServlet extends HttpServlet {
 
     private final ThreadLocal<Map.Entry<Context, Value>> ctx;
 
-    public JsFriendlyServlet(String file) {
-        final URL js = getClass().getClassLoader().getResource(file);
+    public JsFriendlyServlet(String file) throws IOException {
+        URL url = getClass().getClassLoader().getResource(file);
+        if (url == null) {
+            throw new IOException("Can't find file" + file);
+        }
+        Source js = Source.newBuilder("js", url).build();
         ctx = ThreadLocal.withInitial(() -> {
-            try {
-                Context cx = App.createContext();
-                Value handler = cx.eval(Source.newBuilder("js", js).build());
-                return new HashMap.SimpleEntry<>(cx, handler);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            Context cx = App.createContext();
+            Value handler = cx.eval(js);
+            return new HashMap.SimpleEntry<>(cx, handler);
         });
     }
 
