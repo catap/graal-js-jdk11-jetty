@@ -10,7 +10,7 @@
     <url>http://maven.apache.org</url>
     <properties>
         <graalvm.version>19.2.1</graalvm.version>
-        <jetty.version>9.4.22.v20191022</jetty.version>
+        <jetty.version>9.4.24.v20191120</jetty.version>
         <compiler.dir>${project.build.directory}/compiler</compiler.dir>
     </properties>
     <build>
