@@ -49,3 +49,9 @@ or by hands:
 cd src/main/js
 java -XX:+UnlockExperimentalVMOptions -XX:+EnableJVMCI -jar ../../../target/graal-js-jdk11-jetty-1.0-SNAPSHOT-jar-with-dependencies.jar app.js
 ```
+
+or as docker container
+```
+docker build -t graal-js-jdk11-jetty .
+docker run --rm graal-js-jdk11-jetty
+```
