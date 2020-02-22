@@ -26,7 +26,7 @@ git clone https://github.com/catap/graal-js-jdk11-jetty
 cd graal-js-jdk11-jetty
 ```
 
-- Make sure that JAVA_HOME is pointed at a JDK11
+- Make sure that JAVA_HOME is pointed at a JDK11+
 ```
 export JAVA_HOME=$(/usr/libexec/java_home -v 11) # on macOS
 export JAVA_HOME=/path/to/jdk11 # on Linux
